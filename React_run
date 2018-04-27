@@ -1,0 +1,40 @@
+// Code goes here
+var Hello=React.createClass({
+  getInitialState:function(){
+    return {qty:0};
+  },
+  buy: function(){
+    alert("hi");
+    this.setState({qty: this.state.qty+1});
+    
+  },
+  fun2: function(){
+    this.props.handleFun(this.props.value);
+  },
+  render: function(){
+    return(
+        <div>
+        <h2>hi</h2>
+        <button onClick={this.buy}>buy</button>
+        <button onClick={this.fun2}>buy</button>
+        <h3> {this.state.qty}</h3>
+        <h4>{this.props.name} = {this.props.value}</h4>
+        </div>
+      );
+  }
+});
+var Class2 = React.createClass({
+  callfun(name){
+    alert(name);
+  },
+  render: function(){
+    return(
+    <div>
+    <Hello name="archu" value="ar" handleFun={this.callfun}/>
+    <hr/>
+    <Hello name="deepoo" value="ds" handleFun={this.callfun}/>
+    </div>
+    );
+  }
+});
+React.render(<Class2/>,document.getElementById("root"));
